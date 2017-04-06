@@ -7,29 +7,40 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.gjr.wheelpickerbyrecyclerview.data.Year;
+import com.gjr.wheelpickerbyrecyclerview.data.bean.City;
+import com.gjr.wheelpickerbyrecyclerview.data.bean.Province;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by geng
  * on 2017/3/29.
  */
-public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.ViewHoler> {
+public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.VHolder> {
 
     private List<String> monthSource;
 
     public MonthAdapter(List<String> data) {
-        this.monthSource = data;
+        monthSource = new ArrayList<>();
+        monthSource.addAll(data);
+    }
+
+    public void setData(List<String> data) {
+        if (monthSource != null) {
+            monthSource.clear();
+            monthSource.addAll(data);
+        }
     }
 
     @Override
-    public ViewHoler onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHoler(LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item, parent, false));
+    public MonthAdapter.VHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new MonthAdapter.VHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(ViewHoler holder, int position) {
-        holder.textView.setText(monthSource.get(position));
+    public void onBindViewHolder(MonthAdapter.VHolder holder, int position) {
+        holder.tv.setText(monthSource.get(position));
     }
 
     @Override
@@ -37,13 +48,13 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.ViewHoler> {
         return monthSource == null ? 0 : monthSource.size();
     }
 
-    public static class ViewHoler extends RecyclerView.ViewHolder {
+    public static class VHolder extends RecyclerView.ViewHolder {
 
-        TextView textView;
+        public TextView tv;
 
-        public ViewHoler(View itemView) {
+        public VHolder(View itemView) {
             super(itemView);
-            textView = (TextView) itemView.findViewById(R.id.text);
+            tv = (TextView) itemView;
         }
     }
 }

@@ -2,10 +2,14 @@
 
 buildscript {
     repositories {
-        jcenter()
+
+        jcenter {
+            url "http://jcenter.bintray.com/"
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath "io.realm:realm-gradle-plugin:3.0.0"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -14,7 +18,10 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
+
+        jcenter {
+            url "http://jcenter.bintray.com/"
+        }
     }
 }
 

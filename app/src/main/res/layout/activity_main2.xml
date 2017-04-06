@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     tools:context="com.gjr.wheelpickerbyrecyclerview.Main2Activity">
 
-    <TextView
-        android:id="@+id/result_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="选择了： "
-        android:textColor="#333333"
-        android:textSize="20dp" />
+    <!--<TextView-->
+        <!--android:id="@+id/result_tv"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="选择了： "-->
+        <!--android:textColor="#333333"-->
+        <!--android:textSize="20dp" />-->
 
 
     <LinearLayout
@@ -31,6 +31,11 @@
 
         <com.gjr.wheelpickerbyrecyclerview.WheelRecyclerView
             android:id="@+id/recycler_year1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:wheelWidthWeight="1" />
+        <com.gjr.wheelpickerbyrecyclerview.WheelRecyclerView
+            android:id="@+id/recycler_area"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             app:wheelWidthWeight="1" />
@@ -56,37 +61,5 @@
             android:layout_weight="1"
             android:text="确 定" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/result_tv"
-        android:onClick="test"
-        android:text="变化"
-        android:textColor="#333333"
-        android:textSize="20dp" />
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="190dp"-->
-    <!--android:layout_alignParentBottom="true"-->
-    <!--android:gravity="center_vertical"-->
-    <!--android:orientation="vertical">-->
-
-    <!--<View-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="1px"-->
-    <!--android:background="#ff0000" />-->
-
-    <!--<View-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="1px"-->
-    <!--android:layout_marginTop="30dp"-->
-    <!--android:background="#ff0000" />-->
-
-    <!--</LinearLayout>-->
 
 </RelativeLayout>

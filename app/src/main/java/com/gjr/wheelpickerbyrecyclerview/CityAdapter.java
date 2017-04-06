@@ -1,28 +1,35 @@
 package com.gjr.wheelpickerbyrecyclerview;
 
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.gjr.wheelpickerbyrecyclerview.data.Year;
+import com.gjr.wheelpickerbyrecyclerview.data.bean.City;
 import com.gjr.wheelpickerbyrecyclerview.data.bean.Province;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by geng
  * on 2017/3/29.
  */
-public class YearAdapter extends RecyclerView.Adapter<YearAdapter.VHolder> {
+public class CityAdapter extends RecyclerView.Adapter<CityAdapter.VHolder> {
 
-    private List<Province> yearSource;
+    private List<City> yearSource;
 
-    public YearAdapter(List<Province> data) {
-        this.yearSource = data;
+    public CityAdapter(List<City> data) {
+        yearSource = new ArrayList<>();
+        yearSource.addAll(data);
+    }
+
+    public void setData(List<City> data) {
+        if (yearSource != null) {
+            yearSource.clear();
+            yearSource.addAll(data);
+        }
     }
 
     @Override
@@ -32,12 +39,7 @@ public class YearAdapter extends RecyclerView.Adapter<YearAdapter.VHolder> {
 
     @Override
     public void onBindViewHolder(VHolder holder, int position) {
-        holder.tv.setText(yearSource.get(position).pName);
-//        if (position %2==0) {
-//            holder.tv.setBackgroundColor(Color.parseColor("#ff0000"));
-//        } else {
-//            holder.tv.setBackgroundColor(Color.parseColor("#00ff00"));
-//        }
+        holder.tv.setText(yearSource.get(position).cName);
     }
 
     @Override
